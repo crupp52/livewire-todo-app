@@ -27,8 +27,8 @@ class TodoList extends Component
 
     public function render()
     {
-        $this->todos = Auth::user()->todos()->where('status', 1)->orderByDesc('id')->get();
-        $this->completedTasks = Auth::user()->todos()->where('status', 2)->orderByDesc('updated_at')->get();
+        $this->todos = Auth::user()->tasks()->where('status', 1)->orderByDesc('id')->get();
+        $this->completedTasks = Auth::user()->tasks()->where('status', 2)->orderByDesc('updated_at')->get();
 
         return view('livewire.todo-list');
     }

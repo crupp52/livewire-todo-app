@@ -40,7 +40,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function todos()
+    public function tasks()
     {
         return $this->hasMany(Task::class);
     }
