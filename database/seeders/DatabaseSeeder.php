@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory()
+            ->has(Task::factory()->count(10))
+            ->create([
+                'name' => 'Zuck Levente',
+                'email' => 'zuck.levente@engineed.hu',
+                'password' => Hash::make('password'),
+            ]);
+
+        User::factory()
+            ->has(Task::factory()->count(10))
+            ->count(30)
+            ->create();
     }
 }
