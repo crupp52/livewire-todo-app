@@ -25,6 +25,13 @@ class TodoList extends Component
         $this->emit('taskRemoved');
     }
 
+    public function edit($id)
+    {
+        $task = Task::where('id', $id)->first();
+
+        $this->emit('openModalForEdit', $task);
+    }
+
     public function render()
     {
         $this->todos = Auth::user()->tasks()->where('status', 1)->orderByDesc('id')->get();

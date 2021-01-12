@@ -5,4 +5,5 @@
     <p>
         <small>{{ $task->description }}</small>
     </p>
+    <button class="btn btn-warning">Edit</button>
 </div>

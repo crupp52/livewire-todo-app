@@ -2,13 +2,14 @@
     <h1>Actual Tasks</h1>
     <div style="max-height: 500px; overflow: auto">
         @foreach($todos as $task)
-            <div class="p-3 mb-2 border border-primary rounded" wire:click="click({{ $task->id }})">
-                <p>
+            <div class="p-3 mb-2 border border-primary rounded">
+                <p style="cursor: pointer" wire:click="click({{ $task->id }})">
                     <strong>#{{ $task->id }} - {{ $task->title }}</strong>
                 </p>
                 <p>
                     <small>{{ $task->description }}</small>
                 </p>
+                <button class="btn btn-warning" wire:click="edit({{ $task->id }})">Edit</button>
             </div>
         @endforeach
     </div>
@@ -23,6 +24,7 @@
                 <p>
                     <small>{{ $task->description }}</small>
                 </p>
+                <button class="btn btn-warning" wire:click="edit({{ $task->id }})">Edit</button>
             </div>
         @endforeach
     </div>
